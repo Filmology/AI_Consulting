@@ -1,0 +1,47 @@
+openapi: 3.0.1
+info:
+  title: Test Data Endpoint
+  description: A placeholder specification for retrieving test data from a secure Lambda function.
+  version: "1.0"
+servers:
+  - url: https://fswxx6gwptxnymvtnvv5jvlrlq0muhkf.lambda-url.us-east-1.on.aws/
+    
+paths:
+  /fetch_census:
+    get:
+      summary: Fetch Test Data
+      description: Returns Test data for a given variable.
+      parameters:
+        - name: state
+          in: query
+          required: true
+          schema:
+            type: string
+          description: State code or abbreviation (e.g., "TX" or "48").
+        - name: year
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The test data year (e.g., "2021").
+      responses:
+        '200':
+          description: Successful response with test data.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unauthorized (invalid or missing API key).
+        '500':
+          description: Server error.
+      security:
+        - ApiKeyAuth: []
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
