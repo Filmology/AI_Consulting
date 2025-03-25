@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Test Data Plugin",
+  "name_for_model": "test_data_plugin",
+  "description_for_human": "A plugin for testing that retrieves sample data from a custom API. Intended for development and evaluation purposes.",
+  "description_for_model": "A plugin designed for testing purposes that provides sample data retrieval functionality from a custom API. Use with caution and only in a controlled testing environment.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://filmology.github.io/AI_Consulting/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://filmology.github.io/AI_Consulting/Filmology%20Logo.png",
+  "contact_email": "contact@example.com",
+  "legal_info_url": "https://filmology.github.io/AI_Consulting/legal.html"
+}
